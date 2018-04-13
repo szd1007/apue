@@ -17,7 +17,7 @@ void pr_exit(int status)
         printf("child stoped, signal number = %d\n", WSTOPSIG(status));
 }
 
-int main(void)
+int main2(void)
 {
     pid_t   pid;
     int     status;
