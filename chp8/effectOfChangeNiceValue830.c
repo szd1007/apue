@@ -1,7 +1,7 @@
 #include "apue.h"
 #include <errno.h>
 #include <sys/time.h>
-
+#define MACOS 1
 #if defined(MACOS)
 #include <sys/syslimits.h>
 #elif defined(SOLARIS)
@@ -44,3 +44,24 @@ int main(int argc, char *argv[])
         adj = strtol(argv[1], NULL, 10);
     gettimeofday(&end, NULL);
     end.tv_sec += 10;   /* run for 10 seconds */
+
+    if ((pid = fork()) < 0) {
+        err_sys("fork failed");
+    } else if (pid == 0) {  /* child */
+        s = "child";
+        printf("current nice value in child is %d, adjusting by %d\n",
+                nice(0)+nzero, adj);
+        errno = 0;
+        if ((ret = nice(adj)) == -1 && errno != 0)
+            err_sys("child set scheduling priority");
+        printf("now child nice value is %d\n", ret+nzero);
+    } else {    /* parent */
+        s = "parent";
+        printf("current nice value in parent is %d\n", nice(0)+nzero);
+    }
+    for(;;) {
+        if (++count == 0)
+            err_quit("%s counter wrap", s);
+        checktime(s);
+    }
+}
