@@ -7,8 +7,8 @@ static void my_alarm(int signo)
 
     printf("in signal handler\n");
     if ((rootptr = getpwnam("root")) == NULL)
-        err_sys("getpwnam(root) error");
-    printf("before alarm ,name;%s\n", rootptr->pw_name);
+       err_sys("getpwnam(root) error");
+   // printf("before alarm ,name;%s\n", rootptr->pw_name);
     alarm(1);
     printf("exit signal handler\n");
 }
@@ -24,7 +24,7 @@ int main(void)
             err_sys("getpwnam error");
         if (strcmp(ptr->pw_name, "zm") != 0)
             printf("return valued corrupted!, pw_name = %s\n", ptr->pw_name);
-        printf("in loop %s\n", ptr->pw_name);
+//        printf("in loop %s\n", ptr->pw_name);
     }
 }
 
