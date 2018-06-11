@@ -19,5 +19,16 @@ int main(void)
     /* caution: this could lead to deadlock */
     err = pthread_mutex_timedlock(&lock, &tout);
     clock_gettime(CLOCK_REALTIME, &tout);
-    tmp = local
+    tmp = localtime(&tout.tv_sec);
+    strftime(buf, sizeof(buf), "%r", tmp);
+    printf("the time is now %s\n", buf);
+    if (err == 0)
+        printf("mutex locked again !\n");
+    else
+        printf("can't lock mutex again: %s\n",strerror(err));
+    exit(0);
+}
+
+    
+    
 
