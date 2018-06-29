@@ -3,6 +3,10 @@
 #include <fcntl.h>
 #include <sys/resource.h>
 
+/**
+ * 这个方法是让调用方变成daemon 线程
+ */
+
 void daemonize(const char *cmd)
 {
     int             i, fd0, fd1, fd2;
@@ -10,9 +14,7 @@ void daemonize(const char *cmd)
     struct  rlimit  rl;
     struct  sigaction   sa;
 
-    /*
-     * Clear file creation mask.
-     */
+    /* * Clear file creation mask.  */
     umask(0);
 
     /*
@@ -77,7 +79,10 @@ void daemonize(const char *cmd)
 }
 int main(void)
 {
-    daemonize("daemon test");
-    sleep(1000);
-    printf("main exit");
+    daemonize("firstdaemon");
+    syslog(LOG_NOTICE, "First daemon started");
+    sleep(20);
+    
+    syslog(LOG_NOTICE, "First daemon end");
+
 }
