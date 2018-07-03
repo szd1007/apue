@@ -79,10 +79,14 @@ void daemonize(const char *cmd)
 }
 int main(void)
 {
+    char *ptr, buf[MAXLINE];
+
     daemonize("firstdaemon");
-    syslog(LOG_NOTICE, "First daemon started");
-    sleep(20);
-    
-    syslog(LOG_NOTICE, "First daemon end");
+    syslog(LOG_NOTICE, "xFirst daemon started");
+    sleep(10);
+   
+    ptr = getlogin();
+    sprintf(buf, "loginName %s\n", (ptr == NULL)? "empty" : ptr);
+    syslog(LOG_NOTICE, "%s", buf);
 
 }
