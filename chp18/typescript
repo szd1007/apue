@@ -1,0 +1,34 @@
+Script started on Thu Sep 20 09:57:12 2018
+[?1034hbash-3.2$ ll
+bash: ll: command not found
+bash-3.2$ ls
+a.out
+disableInterruptCharacterAndChangeEndOfFileCharacterTOcb1810.c
+exampleOfTcgetattrAndTcsetattr1811.c
+implementationOfPosix_1TtynameFun1815.c
+implyOfGetPassFun1817.c
+printWindowSize1822.c
+setTerminalModeToCbreakOrRaw1820.c
+testRawAndCbreakTerminalModes1821.c
+testTheIsattyFun1814.c
+testTtyNameFunc1816.c
+typescript
+bash-3.2$ ls -la
+total 112
+drwxr-xr-x  13 zm  staff    416  9 20 09:55 .
+drwxr-xr-x  26 zm  staff    832  9  9 15:15 ..
+-rwxr-xr-x   1 zm  staff  13788  9 19 09:59 a.out
+-rw-r--r--   1 zm  staff    688  9  9 16:44 disableInterruptCharacterAndChangeEndOfFileCharacterTOcb1810.c
+-rw-r--r--   1 zm  staff    822  9  9 17:10 exampleOfTcgetattrAndTcsetattr1811.c
+-rw-r--r--   1 zm  staff   2964  9 12 08:24 implementationOfPosix_1TtynameFun1815.c
+-rw-r--r--   1 zm  staff   1616  9 13 08:16 implyOfGetPassFun1817.c
+-rw-r--r--   1 zm  staff    723  9 19 09:59 printWindowSize1822.c
+-rw-r--r--   1 zm  staff   3734  9 13 09:04 setTerminalModeToCbreakOrRaw1820.c
+-rw-r--r--   1 zm  staff   1322  9 18 10:01 testRawAndCbreakTerminalModes1821.c
+-rw-r--r--   1 zm  staff    244  9 11 09:01 testTheIsattyFun1814.c
+-rw-r--r--   1 zm  staff    629  9 12 08:35 testTtyNameFunc1816.c
+-rw-r--r--   1 zm  staff     43  9 20 09:57 typescript
+bash-3.2$ exit
+exit
+
+Script done on Thu Sep 20 09:57:21 2018
